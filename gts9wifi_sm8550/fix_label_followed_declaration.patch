@@ -1,0 +1,8 @@
+--- a/drivers/kernelsu/throne_tracker.c
++++ b/drivers/kernelsu/throne_tracker.c
+@@ -502,7 +502,8 @@
+ uid_ready: // 第502行
+     // first, check if manager_uid exist!
++    ;
+     bool manager_exist = false;
+     int current_manager_uid = ksu_get_manager_uid() % 100000;
