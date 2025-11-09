@@ -1,6 +1,8 @@
 --- a/drivers/extcon/extcon-ktm5030.c
 +++ b/drivers/extcon/extcon-ktm5030.c
-@@ -404,10 +404,17 @@
+@@ -402,15 +402,21 @@
+ 			struct ktm5030 *pdata, bool show)
+ {
  	bool ret = true;
 -	u8 databuf[DATA_BUF_MAX_SIZE];
 +	u8 *databuf;
@@ -15,15 +17,15 @@
 +
  	if ((pdata->fw_status != UPDATE_DRIVERWRITE) &&
 -		(pdata->fw_status != UPDATE_ERASEBANK))
--		return false;
-+	    (pdata->fw_status != UPDATE_ERASEBANK)) {
++		(pdata->fw_status != UPDATE_ERASEBANK)) {
 +		kfree(databuf);
-+		return false;
+ 		return false;
 +	}
  
  	total_page = dlen / DATA_PAGE_SIZE;
  	rest_data = dlen % DATA_PAGE_SIZE;
-@@ -499,5 +506,6 @@
+@@ -498,6 +504,7 @@
+ 			pdata->fw_status = UPDATE_COREIMG;
  	}
  
 +	kfree(databuf);
