@@ -1,10 +1,10 @@
---- a/init/main.c
-+++ b/init/main.c
-@@ -108,6 +108,7 @@
- #include <asm/io.h>
- #include <asm/setup.h>
- #include <asm/sections.h>
- #include <asm/cacheflush.h>
-+#include <asm/stackprotector.h>
- #define CREATE_TRACE_POINTS
- #include <trace/events/initcall.h>
+--- a/include/linux/stackprotector.h
++++ b/include/linux/stackprotector.h
+@@ -12,6 +12,7 @@
+ static inline void boot_init_stack_canary(void)
+ {
+ }
++extern unsigned long __stack_chk_guard;
+ #endif
+ 
+ #endif
