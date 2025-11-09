@@ -1,12 +1,11 @@
 --- a/arch/arm64/include/asm/stackprotector.h
 +++ b/arch/arm64/include/asm/stackprotector.h
-@@ -17,7 +17,9 @@
+@@ -17,8 +17,6 @@
  #include <linux/version.h>
  #include <asm/pointer_auth.h>
  
-+#if defined(CONFIG_STACKPROTECTOR) && !defined(CONFIG_STACKPROTECTOR_PER_TASK)
- extern unsigned long __stack_chk_guard;
-+#endif
- 
+-extern unsigned long __stack_chk_guard;
+-
  /*
   * Initialize the stackprotector canary value.
+  *
