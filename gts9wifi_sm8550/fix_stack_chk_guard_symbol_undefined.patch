@@ -1,10 +1,11 @@
---- a/include/linux/stackprotector.h
-+++ b/include/linux/stackprotector.h
-@@ -12,6 +12,7 @@
- static inline void boot_init_stack_canary(void)
- {
- }
-+extern unsigned long __stack_chk_guard;
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -59,7 +59,7 @@
+ 
+ #if defined(CONFIG_STACKPROTECTOR) && !defined(CONFIG_STACKPROTECTOR_PER_TASK)
+ #include <linux/stackprotector.h>
+-unsigned long __stack_chk_guard __ro_after_init;
++__visible unsigned long __stack_chk_guard __ro_after_init;
+ EXPORT_SYMBOL(__stack_chk_guard);
  #endif
  
- #endif
