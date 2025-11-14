@@ -1,0 +1,10 @@
+--- a/include/linux/seccomp.h
++++ b/include/linux/seccomp.h
+@@ -36,7 +36,6 @@
+ struct seccomp {
+ 	int mode;
+ 	atomic_t filter_count;
+-	atomic_t filter_count;
+ 	struct seccomp_filter *filter;
+ };
+ 
