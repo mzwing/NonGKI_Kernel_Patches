@@ -8,3 +8,16 @@
  	struct seccomp_filter *filter;
  };
  
+--- a/security/selinux/include/objsec.h
++++ b/security/selinux/include/objsec.h
+@@ -193,10 +193,4 @@
+ {
+ 	return superblock->s_security + selinux_blob_sizes.lbs_superblock;
+ }
+-
+-static inline struct inode_security_struct *selinux_inode(
+-						const struct inode *inode)
+-{
+-	return inode->i_security;
+-}
+ #endif /* _SELINUX_OBJSEC_H_ */
