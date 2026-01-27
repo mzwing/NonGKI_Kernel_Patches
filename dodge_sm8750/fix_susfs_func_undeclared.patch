@@ -1,0 +1,10 @@
+--- a/fs/proc/base.c
++++ b/fs/proc/base.c
+@@ -101,6 +101,7 @@
+ #include <linux/ksm.h>
+ #include <linux/cpufreq_times.h>
+ #include <linux/dma-buf.h>
++#include <linux/susfs.h>
+ #include <trace/events/oom.h>
+ #include <trace/hooks/sched.h>
+ #include "internal.h"
